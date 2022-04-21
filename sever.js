@@ -14,6 +14,7 @@ const DB = process.env.DATABASE.replace(
 // 連接資料庫
 mongoose
   .connect(DB)
+  // .connect("mongodb://localhost:27017/hotel")
   .then(() => {
     console.log("資料庫連線成功");
   })
@@ -51,9 +52,13 @@ const requestListener = async (req, res) => {
   } else if (req.url.startsWith("/posts/") && req.method === "DELETE") {
     try {
       const id = req.url.split("/").pop();
-      await Post.findByIdAndDelete(id);
-      posts = await Post.find();
-      successHandle(res, posts);
+      const isFinish = await Post.findByIdAndDelete(id);
+      if (isFinish) {
+        posts = await Post.find();
+        successHandle(res, posts);
+      } else {
+        errorHandle(res, 4004);
+      }
     } catch (error) {
       errorHandle(res, error.message);
     }
@@ -62,9 +67,13 @@ const requestListener = async (req, res) => {
       try {
         const id = req.url.split("/").pop();
         const post = JSON.parse(body);
-        await Post.findByIdAndUpdate(id, post);
-        posts = await Post.find();
-        successHandle(res, posts);
+        const isFinish = await Post.findByIdAndUpdate(id, post);
+        if (isFinish) {
+          posts = await Post.find();
+          successHandle(res, posts);
+        } else {
+          errorHandle(res, 4004);
+        }
       } catch (error) {
         errorHandle(res, error.message);
       }
