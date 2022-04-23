@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "6b282db6-edf7-47eb-9f21-7fadb689f05a",
+		"name": "posts-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "取得所有貼文",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://polar-gorge-19942.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"polar-gorge-19942",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增貼文",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"測試貼文001\",\r\n    \"tags\":[\"謎因\",\"遊記\"],\r\n    \"image\":\"http://dummyimage.com/197x100.png/dddddd/000000\",\r\n    \"content\":\"測試內容\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://polar-gorge-19942.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"polar-gorge-19942",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://polar-gorge-19942.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"polar-gorge-19942",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆貼文",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://polar-gorge-19942.herokuapp.com/posts/6261200e26195d4a1af8ebcb",
+					"protocol": "https",
+					"host": [
+						"polar-gorge-19942",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6261200e26195d4a1af8ebcb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯單筆貼文",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"修改貼文標題\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://polar-gorge-19942.herokuapp.com/posts/6261200f26195d4a1af8ebce",
+					"protocol": "https",
+					"host": [
+						"polar-gorge-19942",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6261200f26195d4a1af8ebce"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
